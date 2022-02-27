@@ -1,6 +1,6 @@
-package com.stroe.book.modal;
+package com.store.book.modal;
 
-import com.stroe.book.constant.Constant;
+import com.store.book.constant.Constant;
 import lombok.*;
 
 import javax.persistence.*;

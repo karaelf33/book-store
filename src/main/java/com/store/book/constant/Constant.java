@@ -1,4 +1,4 @@
-package com.stroe.book.constant;
+package com.store.book.constant;
 
 public final class Constant {
     public static final int SUCCESS_CODE = 200;

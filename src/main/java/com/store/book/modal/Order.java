@@ -1,4 +1,4 @@
-package com.stroe.book.modal;
+package com.store.book.modal;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;

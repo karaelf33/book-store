@@ -8,7 +8,7 @@
         <version>2.6.4</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.stroe</groupId>
+    <groupId>com.store</groupId>
     <artifactId>book</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>book</name>
@@ -63,6 +63,11 @@
         <dependency>
             <groupId>net.minidev</groupId>
             <artifactId>json-smart</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot</artifactId>
+            <version>2.6.4</version>
         </dependency>
     </dependencies>
 
