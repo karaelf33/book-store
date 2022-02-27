@@ -56,4 +56,10 @@ public class OrderServiceImpl implements OrderService {
         //
         cartService.deleteUserCartItems(customer);
     }
+
+    @Override
+    public List<Order> listCustomerOrders(Integer customerId){
+        return orderRepository.findAllByCustomer(customerId);
+
+    }
 }

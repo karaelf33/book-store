@@ -1,13 +1,18 @@
 package com.store.book.service.impl;
 
+import com.store.book.constant.Constant;
 import com.store.book.dto.AddToCartDto;
 import com.store.book.dto.CartDto;
 import com.store.book.dto.CartItemDto;
+import com.store.book.dto.GenericDTO;
 import com.store.book.model.Book;
 import com.store.book.model.Cart;
 import com.store.book.model.Customer;
 import com.store.book.repository.CartRepository;
 import com.store.book.service.CartService;
+import com.store.book.utils.OperationUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,13 +24,31 @@ import java.util.List;
 @Service
 public class CartServiceImpl implements CartService {
 
+    private static final Logger logger =  LogManager.getLogger(UserServiceImpl.class);
+
     @Autowired
     private CartRepository cartRepository;
 
     @Override
-    public void addToCart(AddToCartDto addToCartDto, Book book, Customer customer) {
+    public GenericDTO addToCart(AddToCartDto addToCartDto, Book book, Customer customer) {
         Cart cart = new Cart(book, addToCartDto.getQuantity(), customer);
-        cartRepository.save(cart);
+        try{
+            cartRepository.save(cart);
+            return OperationUtils.returnMessageHandling(
+                    null,
+                    Constant.SUCCESS_CODE,
+                    true,
+                    Constant.BOOK_ADDED_TO_BASKET
+            );
+        }catch (Exception e){
+            logger.error("Failed book add to basket{}",e.getMessage(),e);
+            return OperationUtils.returnMessageHandling(
+                    null,
+                    Constant.FAIL_CODE,
+                    false,
+                    e.getMessage()
+            );
+        }
     }
 
     @Override
@@ -38,8 +61,8 @@ public class CartServiceImpl implements CartService {
         }
         BigDecimal amount = new BigDecimal(BigInteger.ZERO,  2);
         for (CartItemDto cartItemDto : cartItems) {
-           BigDecimal totalCost = (cartItemDto.getBook().getPrice().multiply(new BigDecimal(cartItemDto.getQuantity())));
-           amount.add(totalCost);
+            BigDecimal totalCost = (cartItemDto.getBook().getPrice().multiply(new BigDecimal(cartItemDto.getQuantity())));
+            amount.add(totalCost);
         }
         return new CartDto(cartItems, amount);
     }

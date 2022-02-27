@@ -5,6 +5,8 @@ public final class Constant {
     public static final String SUCCESS_MESSAGE = "SUCCESS";
     public static final int FAIL_CODE = 500;
     public static final String LENGTH_OF_USERNAME = "UserName length should not be grater than 30 characters";
+    public static final String LENGTH_OF_ADDRESS = "Address length should be grater than 130 characters";
+    public static final String LENGTH_OF_CREDIT_CARD = "Address length should be  16 characters";
     public static final String LENGTH_OF_PASSWORD = "password length should not be between 6 and 20 characters";
     public static final String LENGTH_OF_FIRST_NAME = "First Name length should not be grater than 140 characters";
     public static final String LENGTH_OF_EMAIL = "email length should not be grater than 40 characters";
@@ -14,6 +16,7 @@ public final class Constant {
     public static final String USER_CREATED = "user created successfully";
     public static final String ID_NOT_PRESENT = "primary key is required for updating";
     public static final String WRONG_PASSWORD = "please check the pass";
+    public static final String BOOK_ADDED_TO_BASKET = "product added to basket";
 
     public enum Role {
         ADMIN,

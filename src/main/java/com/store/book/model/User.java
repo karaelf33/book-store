@@ -1,6 +1,5 @@
 package com.store.book.model;
 
-import com.store.book.constant.Constant;
 import lombok.*;
 
 import javax.persistence.*;
@@ -32,7 +31,6 @@ public class User{
     @Column(name = "EMAIL", nullable = false)
     private String email;
 
-    @Enumerated(EnumType.STRING)
     @Column(name = "USER_ROLE")
-    private Constant.Role role;
+    private String role;
 }

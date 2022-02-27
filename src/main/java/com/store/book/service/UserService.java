@@ -1,9 +1,9 @@
 package com.store.book.service;
 
 import com.store.book.dto.GenericDTO;
-import com.store.book.dto.UserDTO;
+import com.store.book.dto.UserDto;
 
 public interface UserService {
 
-    GenericDTO createUser(UserDTO userDTO);
+    GenericDTO registerUser(UserDto userDTO);
 }

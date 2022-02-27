@@ -2,6 +2,7 @@ package com.store.book.controllers;
 
 
 import com.store.book.dto.AddToCartDto;
+import com.store.book.dto.GenericDTO;
 import com.store.book.exception.AuthenticationFailException;
 import com.store.book.exception.BookNotExistException;
 import com.store.book.model.Book;
@@ -30,16 +31,15 @@ public class ShoppingCartController {
     CustomerService customerService;
 
     @PostMapping("/add")
-    public ResponseEntity<String> addToCart(@RequestBody AddToCartDto addToCartDto,
-                                            @RequestParam("token") String token)
+    public GenericDTO addToCart(@RequestBody AddToCartDto addToCartDto,
+                                @RequestParam("token") String token)
             throws AuthenticationFailException,
             BookNotExistException {
         authenticationService.authenticate(token);
         User user = authenticationService.getUser(token);
         Customer customer=customerService.findCustomerByUserId(user.getId());
         Book book = bookService.getBookById(addToCartDto.getBookId());
-        cartService.addToCart(addToCartDto, book, customer);
-        return new ResponseEntity<>(("Added to cart"), HttpStatus.CREATED);
+        return cartService.addToCart(addToCartDto, book, customer) ;
 
     }
 

@@ -10,21 +10,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("api/book")
+@RequestMapping("api/v1/book")
 public class BookController {
 
     @Autowired
     private BookService bookService;
 
-    @PostMapping("/add")
-    public GenericDTO createProduct(@RequestBody BookDto bookDto){
+    @PostMapping("/")
+    public GenericDTO createBook(@RequestBody BookDto bookDto){
 
         return bookService.addBook(bookDto);
-    }
-
-    @RequestMapping("/welcome")
-    public String welcomepage() {
-        return "Welcome to Yawin Tutor";
     }
 
     // update book stock
