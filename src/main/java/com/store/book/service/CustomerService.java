@@ -1,7 +1,7 @@
 package com.store.book.service;
 
 import com.store.book.dto.GenericDTO;
-import com.store.book.modal.Customer;
+import com.store.book.model.Customer;
 import org.springframework.stereotype.Service;
 
 @Service

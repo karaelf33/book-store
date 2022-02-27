@@ -4,7 +4,7 @@ import com.store.book.constant.Constant;
 import com.store.book.dto.BookDto;
 import com.store.book.dto.GenericDTO;
 import com.store.book.exception.BookNotExistException;
-import com.store.book.modal.Book;
+import com.store.book.model.Book;
 import com.store.book.repository.BookRepository;
 import com.store.book.service.BookService;
 import com.store.book.utils.OperationUtils;

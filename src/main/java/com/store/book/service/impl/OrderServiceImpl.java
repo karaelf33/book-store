@@ -2,9 +2,9 @@ package com.store.book.service.impl;
 
 import com.store.book.dto.CartDto;
 import com.store.book.dto.CartItemDto;
-import com.store.book.modal.Customer;
-import com.store.book.modal.Order;
-import com.store.book.modal.OrderItem;
+import com.store.book.model.Customer;
+import com.store.book.model.Order;
+import com.store.book.model.OrderItem;
 import com.store.book.repository.OrderItemsRepository;
 import com.store.book.repository.OrderRepository;
 import com.store.book.service.CartService;

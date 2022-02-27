@@ -4,7 +4,7 @@ import com.store.book.constant.Constant;
 import com.store.book.dto.GenericDTO;
 import com.store.book.dto.UserDTO;
 import com.store.book.exception.RunTimeExceptionPlaceHolder;
-import com.store.book.modal.User;
+import com.store.book.model.User;
 import com.store.book.repository.UserRepository;
 import com.store.book.service.CustomerService;
 import com.store.book.service.UserService;

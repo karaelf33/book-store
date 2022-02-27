@@ -1,4 +1,4 @@
-package com.store.book.modal;
+package com.store.book.model;
 
 import lombok.*;
 import net.minidev.json.annotate.JsonIgnore;

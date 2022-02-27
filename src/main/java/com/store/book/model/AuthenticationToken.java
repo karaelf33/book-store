@@ -1,4 +1,4 @@
-package com.store.book.modal;
+package com.store.book.model;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

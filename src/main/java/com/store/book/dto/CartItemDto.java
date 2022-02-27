@@ -1,7 +1,7 @@
 package com.store.book.dto;
 
-import com.store.book.modal.Book;
-import com.store.book.modal.Cart;
+import com.store.book.model.Book;
+import com.store.book.model.Cart;
 import lombok.Getter;
 import lombok.Setter;
 

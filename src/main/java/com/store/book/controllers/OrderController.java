@@ -1,8 +1,8 @@
 package com.store.book.controllers;
 
 import com.store.book.exception.AuthenticationFailException;
-import com.store.book.modal.Customer;
-import com.store.book.modal.User;
+import com.store.book.model.Customer;
+import com.store.book.model.User;
 import com.store.book.service.CustomerService;
 import com.store.book.service.OrderService;
 import com.store.book.service.impl.AuthenticationService;

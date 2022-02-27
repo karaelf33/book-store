@@ -1,7 +1,7 @@
 package com.store.book.repository;
 
-import com.store.book.modal.AuthenticationToken;
-import com.store.book.modal.User;
+import com.store.book.model.AuthenticationToken;
+import com.store.book.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -2,8 +2,8 @@ package com.store.book.service.impl;
 
 import com.store.book.constant.Constant;
 import com.store.book.exception.AuthenticationFailException;
-import com.store.book.modal.AuthenticationToken;
-import com.store.book.modal.User;
+import com.store.book.model.AuthenticationToken;
+import com.store.book.model.User;
 import com.store.book.repository.TokenRepository;
 import com.store.book.utils.Helper;
 import org.springframework.beans.factory.annotation.Autowired;

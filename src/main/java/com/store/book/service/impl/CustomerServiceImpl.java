@@ -1,7 +1,7 @@
 package com.store.book.service.impl;
 
 import com.store.book.dto.GenericDTO;
-import com.store.book.modal.Customer;
+import com.store.book.model.Customer;
 import com.store.book.repository.CustomerRepository;
 import com.store.book.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
