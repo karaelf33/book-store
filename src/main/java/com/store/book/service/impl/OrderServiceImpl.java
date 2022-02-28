@@ -42,6 +42,12 @@ public class OrderServiceImpl implements OrderService {
         newOrder.setTotalPrice(cartDto.getTotalCost());
         orderRepository.save(newOrder);
 
+        addOrderToOrderItem(cartItemDtoList, newOrder);
+        //
+        cartService.deleteUserCartItems(customer);
+    }
+
+    private void addOrderToOrderItem(List<CartItemDto> cartItemDtoList, Order newOrder) {
         for (CartItemDto cartItemDto : cartItemDtoList) {
             // create orderItem and save each one
             OrderItem orderItem = new OrderItem();
@@ -53,8 +59,6 @@ public class OrderServiceImpl implements OrderService {
             // add to order item list
             orderItemsRepository.save(orderItem);
         }
-        //
-        cartService.deleteUserCartItems(customer);
     }
 
     @Override
