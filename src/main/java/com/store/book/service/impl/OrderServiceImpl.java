@@ -29,22 +29,22 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public void placeOrder(Customer customer, String sessionId) {
-        // first let get cart items for the user
         CartDto cartDto = cartService.listCartItems(customer);
 
         List<CartItemDto> cartItemDtoList = cartDto.getCartItems();
-
-        // create the order and save it
-        Order newOrder = new Order();
-        newOrder.setCreatedDate(new Date());
-        newOrder.setSessionId(sessionId);
-        newOrder.setCustomer(customer);
-        newOrder.setTotalPrice(cartDto.getTotalCost());
-        orderRepository.save(newOrder);
-
-        addOrderToOrderItem(cartItemDtoList, newOrder);
-        //
+        Order order = createNewOrder(customer, sessionId, cartDto);
+        addOrderToOrderItem(cartItemDtoList, order);
         cartService.deleteUserCartItems(customer);
+    }
+
+    private Order createNewOrder(Customer customer, String sessionId, CartDto cartDto) {
+        Order order = new Order();
+        order.setCreatedDate(new Date());
+        order.setSessionId(sessionId);
+        order.setCustomer(customer);
+        order.setTotalPrice(cartDto.getTotalCost());
+        orderRepository.save(order);
+        return order;
     }
 
     private void addOrderToOrderItem(List<CartItemDto> cartItemDtoList, Order newOrder) {

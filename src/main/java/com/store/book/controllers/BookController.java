@@ -19,7 +19,6 @@ public class BookController {
         return bookService.addBook(bookDto);
     }
 
-    // update book stock
 
     @PostMapping("/{bookId}")
     public GenericDTO updateBookStock(@PathVariable Integer bookId, @RequestParam Integer stock) {

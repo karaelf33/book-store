@@ -16,7 +16,6 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    // path isimlerini düşün
     @PostMapping("")
     public GenericDTO registerUser(@RequestBody UserDto userDTO) {
         return userService.registerUser(userDTO);
