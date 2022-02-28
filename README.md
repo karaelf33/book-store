@@ -1,3 +1,4 @@
+Register User
 http://localhost:8080/api/v1/users
 
 {
@@ -7,4 +8,17 @@ http://localhost:8080/api/v1/users
 "lastName":"Bestas",
 "email":"bestas@gmail.com",
 "role":"CUSTOMER"
+}
+
+---
+Add book of stock
+http://localhost:8080/api/v1/book
+
+{
+"bookName":"The door of eden",
+"author":"Adrain",
+"price":15.00,
+"imageUrl":"imag.rul",
+"code":"C054AR",
+"stock":235
 }

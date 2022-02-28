@@ -13,7 +13,7 @@ public class BookController {
     @Autowired
     private BookService bookService;
 
-    @PostMapping("/")
+    @PostMapping("")
     public GenericDTO createBook(@RequestBody BookDto bookDto) {
 
         return bookService.addBook(bookDto);
