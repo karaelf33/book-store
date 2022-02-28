@@ -36,7 +36,6 @@ public class UserServiceImpl implements UserService {
 
 
     @Override
-    @Transactional
     public GenericDTO registerUser(UserDto userDTO) {
         String encodedPassword = bCryptPasswordEncoder.encode(userDTO.getPassword());
         if (userRepository.existsByUserName(userDTO.getUserName())) {
@@ -56,10 +55,10 @@ public class UserServiceImpl implements UserService {
                 .build();
         try {
             userRepository.save(user);
-            logger.info("Created successfully");
             if (Objects.equals(userDTO.getRole(), Constant.Role.CUSTOMER.name())) {
                 customerService.createCustomerByUser(userDTO);
             }
+            logger.info("Created successfully");
             return OperationUtils.returnMessageHandling(
                     userDTO,
                     Constant.SUCCESS_CODE,

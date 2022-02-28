@@ -7,6 +7,7 @@ import com.store.book.model.Book;
 
 public interface BookService {
 
-    GenericDTO addBook( BookDto bookDto);
+    GenericDTO addBook(BookDto bookDto);
     Book getBookById(Integer bookId);
+    GenericDTO updateBookStock(Integer bookId,Integer stock);
 }

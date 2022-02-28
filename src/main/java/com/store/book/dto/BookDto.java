@@ -17,13 +17,12 @@ public class BookDto {
     @NotNull(message = "bookName should not be null!")
     @NotEmpty(message = "bookName should not be empty!")
     private String bookName;
-
     private String author;
 
     @Min(value = 0)
     private BigDecimal price;
-
     private String imageUrl;
-
+    private String code;
+    private Integer stock;
     private int availableItemCount;
 }

@@ -30,6 +30,9 @@ public class Book {
     @Column(name = "AUTHOR")
     private String author;
 
+    @Column(name = "CODE")
+    private String code;
+
     @Column(name = "IMAGE_URL", nullable = false)
     private String imageURL;
 
@@ -37,6 +40,8 @@ public class Book {
     @Column(name = "PRICE", nullable = false)
     private BigDecimal price;
 
+    @Column(name = "STOCK", nullable = false)
+    private Integer stock;
 
     @JsonFormat(pattern = "dd/MM/yyyy")
     @Column(name = "CREATED_DATE", nullable = false)
