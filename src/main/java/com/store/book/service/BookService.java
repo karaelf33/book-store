@@ -9,5 +9,5 @@ public interface BookService {
 
     GenericDTO addBook(BookDto bookDto);
     Book getBookById(Integer bookId);
-    GenericDTO updateBookStock(Integer bookId,Integer stock);
+    GenericDTO updateBookStock(String bookCode,Integer stock);
 }

@@ -1,5 +1,6 @@
 package com.store.book.dto;
 
+import com.store.book.model.Book;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -25,4 +26,15 @@ public class BookDto {
     private String code;
     private Integer stock;
     private int availableItemCount;
+
+    public static BookDto convertEntityToDto(Book book) {
+        BookDto bookDto=new BookDto();
+        bookDto.setBookName(book.getBookName());
+        bookDto.setPrice(book.getPrice());
+        bookDto.setAuthor(book.getAuthor());
+        bookDto.setImageUrl(book.getImageURL());
+        bookDto.setCode(book.getCode());
+        bookDto.setStock(book.getStock());
+        return bookDto;
+    }
 }

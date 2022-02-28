@@ -15,14 +15,13 @@ public class BookController {
 
     @PostMapping("")
     public GenericDTO createBook(@RequestBody BookDto bookDto) {
-
         return bookService.addBook(bookDto);
     }
 
 
-    @PostMapping("/{bookId}")
-    public GenericDTO updateBookStock(@PathVariable Integer bookId, @RequestParam Integer stock) {
+    @PostMapping("/stock")
+    public GenericDTO updateBookStock(@RequestBody BookDto bookDto) {
 
-        return bookService.updateBookStock(bookId, stock);
+        return bookService.updateBookStock(bookDto.getCode(), bookDto.getStock());
     }
 }

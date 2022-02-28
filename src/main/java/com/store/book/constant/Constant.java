@@ -17,6 +17,7 @@ public final class Constant {
     public static final String ID_NOT_PRESENT = "primary key is required for updating";
     public static final String WRONG_PASSWORD = "please check the pass";
     public static final String BOOK_ADDED_TO_BASKET = "product added to basket";
+    public static final String BOOK_EXIST = "You cannot create another book with the same code";
 
     public enum Role {
         ADMIN,

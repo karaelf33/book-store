@@ -22,3 +22,12 @@ http://localhost:8080/api/v1/book
 "code":"C054AR",
 "stock":235
 }
+
+Update Book Stock
+
+http://localhost:8080/api/v1/book/stock
+{
+
+	"code":"SE23AD",
+	"stock":12
+}

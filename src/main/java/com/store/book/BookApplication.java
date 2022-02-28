@@ -1,6 +1,8 @@
 package com.store.book;
 
+import com.store.book.model.Book;
 import com.store.book.model.User;
+import com.store.book.repository.BookRepository;
 import com.store.book.repository.UserRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -10,6 +12,11 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
+import javax.xml.crypto.Data;
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.util.Date;
 
 @SpringBootApplication
 @ComponentScan(basePackages = {"com.store.book.controllers","com.store.book.service",
@@ -34,7 +41,7 @@ public class BookApplication  extends WebSecurityConfigurerAdapter {
     }
 
     @Bean
-    public CommandLineRunner demoData(UserRepository repo) {
+    public CommandLineRunner demoData(UserRepository repo, BookRepository bookRepository) {
         return args -> {
             var customer = "Customer";
 
@@ -47,6 +54,17 @@ public class BookApplication  extends WebSecurityConfigurerAdapter {
                     .role("Customer")
                     .build();
             repo.save(user);
+
+            Book book= Book.builder()
+                    .bookName("Test Book")
+                    .author("Test author")
+                    .dateCreated(LocalDate.now())
+                    .imageURL("Test.img.url")
+                    .price(BigDecimal.TEN)
+                    .code("SE23AD")
+                    .stock(34)
+                    .build();
+            bookRepository.save(book);
         };
     }
 }

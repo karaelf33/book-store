@@ -28,6 +28,15 @@ public class BookServiceImpl implements BookService {
     @Override
     public GenericDTO addBook(BookDto bookDto) {
 
+
+        if (isPresentBookWithSameCode(bookDto)) {
+            return OperationUtils.returnMessageHandling(
+                    bookDto,
+                    Constant.FAIL_CODE,
+                    false,
+                    Constant.BOOK_EXIST
+            );
+        }
         Book book = Book.builder()
                 .bookName(bookDto.getBookName())
                 .author(bookDto.getAuthor())
@@ -38,7 +47,6 @@ public class BookServiceImpl implements BookService {
                 .dateCreated(LocalDate.now())
                 .build();
         // create  stock system and insert new book's stock
-        //.availableItemCount(bookDto.getAvailableItemCount())
 
         try {
             bookRepository.save(book);
@@ -58,6 +66,10 @@ public class BookServiceImpl implements BookService {
         }
     }
 
+    private boolean isPresentBookWithSameCode(BookDto bookDto) {
+        return bookRepository.existsByCode(bookDto.getCode());
+    }
+
     public Book getBookById(Integer bookId) throws BookNotExistException {
         Optional<Book> bookOptional = bookRepository.findById(bookId);
         if (bookOptional.isEmpty())
@@ -67,13 +79,15 @@ public class BookServiceImpl implements BookService {
 
     @Override
     @Transactional
-    public GenericDTO updateBookStock(Integer bookId, Integer stock) {
-        Book book = bookRepository.getById(bookId);
-        book.setStock(stock);
-        bookRepository.save(book);
+    public GenericDTO updateBookStock(String bookCode, Integer stock) {
+
         try {
+            Book book = bookRepository.findByCode(bookCode);
+            book.setStock(stock);
+            bookRepository.save(book);
+
             return OperationUtils.returnMessageHandling(
-                    null,
+                    BookDto.convertEntityToDto(book),
                     Constant.SUCCESS_CODE,
                     true,
                     Constant.SUCCESS_MESSAGE
