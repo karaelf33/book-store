@@ -52,7 +52,7 @@ public class BookServiceImpl implements BookService {
             return OperationUtils.returnMessageHandling(
                     null,
                     Constant.FAIL_CODE,
-                    true,
+                    false,
                     Constant.SUCCESS_MESSAGE
             );
         }
@@ -83,7 +83,7 @@ public class BookServiceImpl implements BookService {
             return OperationUtils.returnMessageHandling(
                     null,
                     Constant.FAIL_CODE,
-                    true,
+                    false,
                     Constant.SUCCESS_MESSAGE
             );
         }

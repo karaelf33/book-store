@@ -49,14 +49,12 @@ public class OrderServiceImpl implements OrderService {
 
     private void addOrderToOrderItem(List<CartItemDto> cartItemDtoList, Order newOrder) {
         for (CartItemDto cartItemDto : cartItemDtoList) {
-            // create orderItem and save each one
             OrderItem orderItem = new OrderItem();
             orderItem.setCreatedDate(new Date());
             orderItem.setPrice(cartItemDto.getBook().getPrice());
             orderItem.setBook(cartItemDto.getBook());
             orderItem.setQuantity(cartItemDto.getQuantity());
             orderItem.setOrders(newOrder);
-            // add to order item list
             orderItemsRepository.save(orderItem);
         }
     }
@@ -64,6 +62,5 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public List<Order> listCustomerOrders(Integer customerId){
         return orderRepository.findAllByCustomer(customerId);
-
     }
 }
