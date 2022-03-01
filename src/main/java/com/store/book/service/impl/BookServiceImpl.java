@@ -85,6 +85,7 @@ public class BookServiceImpl implements BookService {
             Book book = bookRepository.findByCode(bookCode);
             book.setStock(stock);
             bookRepository.save(book);
+            logger.error("BOOK SUCCESSFULLY UPDATED");
 
             return OperationUtils.returnMessageHandling(
                     BookDto.convertEntityToDto(book),
@@ -98,7 +99,7 @@ public class BookServiceImpl implements BookService {
                     null,
                     Constant.FAIL_CODE,
                     false,
-                    Constant.SUCCESS_MESSAGE
+                    e.getMessage()
             );
         }
     }
